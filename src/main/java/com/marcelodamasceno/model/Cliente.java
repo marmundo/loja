@@ -15,6 +15,14 @@ public class Cliente {
 	private String sobrenome;
 
 	private List<Pedido> pedidos;
+	
+	
+
+	public Cliente(String primeiroNome, String sobrenome) {
+		super();
+		this.primeiroNome = primeiroNome;
+		this.sobrenome = sobrenome;
+	}
 
 	public Cliente(Long id, String primeiroNome, String sobrenome) {
 		super();
