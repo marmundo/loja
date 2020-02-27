@@ -1,4 +1,4 @@
-package com.marcelodamasceno.model;
+package com.marcelodamasceno.domain;
 
 import java.util.Date;
 import java.util.List;
