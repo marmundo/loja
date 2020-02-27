@@ -19,6 +19,14 @@ public class Cliente {
 
 	@OneToMany
 	private List<Pedido> pedidos;
+	
+	
+
+	public Cliente(String primeiroNome, String sobrenome) {
+		super();
+		this.primeiroNome = primeiroNome;
+		this.sobrenome = sobrenome;
+	}
 
 	public Cliente(Long id, String primeiroNome, String sobrenome) {
 		super();
