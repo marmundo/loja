@@ -1,29 +1,27 @@
 package com.marcelodamasceno.model;
 
-import java.util.List;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class Cliente {
+public class Produto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private String primeiroNome;
-	private String sobrenome;
 
-	private List<Pedido> pedidos;
+	private String nome;
 
-	public Cliente(Long id, String primeiroNome, String sobrenome) {
+	private String valor;
+
+	public Produto(Long id, String nome, String valor) {
 		super();
 		this.id = id;
-		this.primeiroNome = primeiroNome;
-		this.sobrenome = sobrenome;
+		this.nome = nome;
+		this.valor = valor;
 	}
 
-	public Cliente() {
+	public Produto() {
 		super();
 	}
 
@@ -35,28 +33,20 @@ public class Cliente {
 		this.id = id;
 	}
 
-	public String getPrimeiroNome() {
-		return primeiroNome;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setPrimeiroNome(String primeiroNome) {
-		this.primeiroNome = primeiroNome;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public String getSobrenome() {
-		return sobrenome;
+	public String getValor() {
+		return valor;
 	}
 
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
-	}
-
-	public List<Pedido> getPedidos() {
-		return pedidos;
-	}
-
-	public void setPedidos(List<Pedido> pedidos) {
-		this.pedidos = pedidos;
+	public void setValor(String valor) {
+		this.valor = valor;
 	}
 
 	@Override
@@ -75,7 +65,7 @@ public class Cliente {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cliente other = (Cliente) obj;
+		Produto other = (Produto) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -86,8 +76,7 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", primeiroNome=" + primeiroNome + ", sobrenome=" + sobrenome + ", pedidos="
-				+ pedidos + "]";
+		return "Produto [id=" + id + ", nome=" + nome + ", valor=" + valor + "]";
 	}
 
 }
