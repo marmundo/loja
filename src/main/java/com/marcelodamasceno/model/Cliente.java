@@ -2,10 +2,13 @@ package com.marcelodamasceno.model;
 
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
+@Entity
 public class Cliente {
 
 	@Id
@@ -14,6 +17,7 @@ public class Cliente {
 	private String primeiroNome;
 	private String sobrenome;
 
+	@OneToMany
 	private List<Pedido> pedidos;
 
 	public Cliente(Long id, String primeiroNome, String sobrenome) {
