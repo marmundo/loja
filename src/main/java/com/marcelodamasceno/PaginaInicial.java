@@ -13,7 +13,14 @@ import com.marcelodamasceno.model.Cliente;
 public class PaginaInicial {
 	
 
-	Cliente cliente=new Cliente();
+	private final Cliente cliente;
+	
+	public PaginaInicial() {
+		super();
+		this.cliente = new Cliente();
+	}
+
+	
 	
 	@GetMapping("/")
 	public String home() {
