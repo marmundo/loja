@@ -23,6 +23,11 @@ public class Cliente {
 		this.sobrenome = sobrenome;
 	}
 
+	public Cliente(String primeiroNome, String sobrenome) {
+		super();
+		this.primeiroNome = primeiroNome;
+		this.sobrenome = sobrenome;
+	}
 	public Cliente() {
 		super();
 	}
