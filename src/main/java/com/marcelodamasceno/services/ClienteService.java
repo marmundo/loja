@@ -8,7 +8,7 @@ public interface ClienteService {
 
 	public abstract void criarCliente(Cliente cliente);
 
-	public abstract void atualizarCliente(String id, Cliente cliente);
+	public abstract void atualizarCliente(Cliente cliente);
 
 	public abstract void deleteCliente(String id);
 

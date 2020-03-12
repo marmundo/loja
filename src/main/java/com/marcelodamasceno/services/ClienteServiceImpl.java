@@ -25,10 +25,9 @@ public class ClienteServiceImpl implements ClienteService {
 	}
 
 	@Override
-	public void atualizarCliente(String id, Cliente cliente) {
-		clienteRepo.remove(id);
-		cliente.setId(Long.parseLong(id));
-		clienteRepo.put(id, cliente);
+	public void atualizarCliente(Cliente cliente) {
+		clienteRepo.remove(cliente.getId().toString());
+		clienteRepo.put(cliente.getId().toString(), cliente);
 
 	}
 
