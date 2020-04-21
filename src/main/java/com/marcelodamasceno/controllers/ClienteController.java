@@ -37,15 +37,18 @@ public class ClienteController implements CrudController {
 
 	}
 
-	@GetMapping("/clientes")
-	public String lista(Model model) {
-		model.addAttribute("clientes",servico.getClientes());
-		return "clientes";
-	}
+//	@GetMapping("/clientes")
+//	public String lista(Model model) {
+//		model.addAttribute("clientes",servico.getClientes());
+//		return "clientes";
+//	}
 
 	
 	@GetMapping("/teste")
 	public String getTeste() {
 		return "teste";
 	}
+	
+	
+	
 }
