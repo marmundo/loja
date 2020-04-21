@@ -1,6 +1,8 @@
 package com.marcelodamasceno.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.marcelodamasceno.model.Produto;
 import com.marcelodamasceno.services.ProdutoService;
@@ -28,6 +30,12 @@ public class ProdutoController implements CrudController {
 	@Override
 	public void atualiza(Object object) {
 		servico.atualizarProduto((Produto) object);
+	}
+	
+	@GetMapping("/produtos")
+	public String lista(Model model) {
+		model.addAttribute("clientes",servico.getProdutos());
+		return "clientes";
 	}
 
 }
