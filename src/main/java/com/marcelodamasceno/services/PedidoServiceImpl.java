@@ -47,7 +47,7 @@ public class PedidoServiceImpl implements PedidoService {
 	}
 
 	@Override
-	public Collection<Pedido> getPedido() {
+	public Collection<Pedido> getPedidos() {
 		return pedidoRepo.values();
 	}
 
