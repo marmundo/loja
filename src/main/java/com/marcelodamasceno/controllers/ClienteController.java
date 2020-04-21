@@ -13,7 +13,8 @@ import com.marcelodamasceno.services.ClienteServiceImpl;
 public class ClienteController implements CrudController {
 
 	private final ClienteService servico;
-
+	
+	
 	@Autowired
 	public ClienteController(ClienteServiceImpl servico) {
 		this.servico = servico;
@@ -42,6 +43,14 @@ public class ClienteController implements CrudController {
 		model.addAttribute("clientes",servico.getClientes());
 		return "clientes";
 	}
+	
+//	@GetMapping("/cliente")
+//	public String listaCliente(Model model) {
+//		List<Cliente> list = new ArrayList<Cliente>(servico.getClientes());
+//	
+//		model.addAttribute("cliente",list.get(0));
+//		return "cliente";
+//	}
 
 	
 	@GetMapping("/teste")
