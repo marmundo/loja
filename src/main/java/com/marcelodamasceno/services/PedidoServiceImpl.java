@@ -7,10 +7,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+
 import com.marcelodamasceno.model.Cliente;
 import com.marcelodamasceno.model.Pedido;
 import com.marcelodamasceno.model.Produto;
 
+@Service
 public class PedidoServiceImpl implements PedidoService {
 
 	private static Map<String, Pedido> pedidoRepo = new HashMap<>();
