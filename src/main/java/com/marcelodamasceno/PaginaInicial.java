@@ -5,7 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.marcelodamasceno.model.Cliente;
 
@@ -24,7 +23,7 @@ public class PaginaInicial {
 	
 	@GetMapping("/")
 	public String home() {
-		return "<h1>Olá Marcelo</h1>";
+		return "index";
 	}
 	
 //	@GetMapping("/cliente/{primeiroNome}")
