@@ -12,9 +12,9 @@ public class Produto {
 
 	private String nome;
 
-	private String valor;
+	private double valor;
 
-	public Produto(Long id, String nome, String valor) {
+	public Produto(Long id, String nome, double valor) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -41,11 +41,11 @@ public class Produto {
 		this.nome = nome;
 	}
 
-	public String getValor() {
+	public double getValor() {
 		return valor;
 	}
 
-	public void setValor(String valor) {
+	public void setValor(double valor) {
 		this.valor = valor;
 	}
 
@@ -78,5 +78,4 @@ public class Produto {
 	public String toString() {
 		return "Produto [id=" + id + ", nome=" + nome + ", valor=" + valor + "]";
 	}
-
 }

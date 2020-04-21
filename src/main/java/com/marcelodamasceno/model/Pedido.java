@@ -18,9 +18,9 @@ public class Pedido {
 
 	private Date data;
 
-	private Double valorTotal;
+	private double valorTotal;
 
-	public Pedido(Long id, List<Produto> produtos, Cliente cliente, Date data, Double valorTotal) {
+	public Pedido(Long id, List<Produto> produtos, Cliente cliente, Date data, double valorTotal) {
 		super();
 		this.id = id;
 		this.produtos = produtos;
@@ -65,11 +65,11 @@ public class Pedido {
 		this.data = data;
 	}
 
-	public Double getValorTotal() {
+	public double getValorTotal() {
 		return valorTotal;
 	}
 
-	public void setValorTotal(Double valorTotal) {
+	public void setValorTotal(double valorTotal) {
 		this.valorTotal = valorTotal;
 	}
 
