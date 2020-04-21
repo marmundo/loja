@@ -1,6 +1,7 @@
 package com.marcelodamasceno.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -8,6 +9,7 @@ import com.marcelodamasceno.model.Produto;
 import com.marcelodamasceno.services.ProdutoService;
 import com.marcelodamasceno.services.ProdutoServiceImpl;
 
+@Controller
 public class ProdutoController implements CrudController {
 
 	private final ProdutoService servico;
