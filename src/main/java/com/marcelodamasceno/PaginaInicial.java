@@ -23,7 +23,7 @@ public class PaginaInicial {
 	
 	@GetMapping("/")
 	public String home() {
-		return "<h1>Olá Marcelo</h1>";
+		return "index";
 	}
 	
 //	@GetMapping("/cliente/{primeiroNome}")

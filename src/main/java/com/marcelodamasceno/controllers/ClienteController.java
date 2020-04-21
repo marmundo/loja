@@ -1,5 +1,8 @@
 package com.marcelodamasceno.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,6 +45,14 @@ public class ClienteController implements CrudController {
 		model.addAttribute("clientes",servico.getClientes());
 		return "clientes";
 	}
+	
+//	@GetMapping("/cliente")
+//	public String listaCliente(Model model) {
+//		List<Cliente> list = new ArrayList<Cliente>(servico.getClientes());
+//	
+//		model.addAttribute("cliente",list.get(0));
+//		return "cliente";
+//	}
 
 	
 	@GetMapping("/teste")
