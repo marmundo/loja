@@ -4,8 +4,11 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+
 import com.marcelodamasceno.model.Produto;
 
+@Service
 public class ProdutoServiceImpl implements ProdutoService {
 
 	private static Map<String, Produto> produtoRepo = new HashMap<>();
