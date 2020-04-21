@@ -12,5 +12,5 @@ public interface ProdutoService {
 
 	public abstract void deleteProduto(String id);
 
-	public abstract Collection<Produto> getProduto();
+	public abstract Collection<Produto> getProdutos();
 }
