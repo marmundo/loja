@@ -33,7 +33,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 	}
 
 	@Override
-	public Collection<Produto> getProduto() {
+	public Collection<Produto> getProdutos() {
 		return produtoRepo.values();
 	}
 
