@@ -26,6 +26,11 @@ public class PaginaInicial {
 		return "index";
 	}
 	
+	@GetMapping("/ambiente")
+	public String ambiente() {
+		return "ambiente";
+	}
+	
 //	@GetMapping("/cliente/{primeiroNome}")
 //	public ModelAndView olaCliente(@PathVariable("primeiroNome") String primeiroNome, Model model) {
 //		cliente.setPrimeiroNome(primeiroNome);
