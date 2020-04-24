@@ -13,11 +13,11 @@ public class ClienteServiceImpl implements ClienteService {
 
 	private static Map<String, Cliente> clienteRepo = new HashMap<>();
 	static {
-	 Cliente marceloDamasceno= new Cliente((long) 1,"Marcelo","Damasceno");
-     clienteRepo.put(marceloDamasceno.getId().toString(), marceloDamasceno);
+		Cliente marceloDamasceno = new Cliente((long) 1, "Marcelo", "Damasceno");
+		clienteRepo.put(marceloDamasceno.getId().toString(), marceloDamasceno);
 
-  }
-	
+	}
+
 	@Override
 	public void criarCliente(Cliente cliente) {
 		clienteRepo.put(cliente.getId().toString(), cliente);
@@ -42,4 +42,8 @@ public class ClienteServiceImpl implements ClienteService {
 		return clienteRepo.values();
 	}
 
+	@Override
+	public Cliente getCliente(Long id) {
+		return clienteRepo.get(id.toString());
+	}
 }
