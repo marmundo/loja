@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class Cliente implements Comparable {
+public class Cliente implements Comparable<Object> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
