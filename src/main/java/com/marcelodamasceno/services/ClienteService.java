@@ -13,4 +13,6 @@ public interface ClienteService {
 	public abstract void deleteCliente(String id);
 
 	public abstract Collection<Cliente> getClientes();
+
+	public abstract Cliente getCliente(Long id);
 }
