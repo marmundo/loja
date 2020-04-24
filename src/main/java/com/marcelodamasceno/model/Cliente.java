@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class Cliente {
+public class Cliente implements Comparable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,6 +28,7 @@ public class Cliente {
 		this.primeiroNome = primeiroNome;
 		this.sobrenome = sobrenome;
 	}
+
 	public Cliente() {
 		super();
 	}
@@ -93,6 +94,12 @@ public class Cliente {
 	public String toString() {
 		return "Cliente [id=" + id + ", primeiroNome=" + primeiroNome + ", sobrenome=" + sobrenome + ", pedidos="
 				+ pedidos + "]";
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		Cliente c = (Cliente) o;
+		return this.primeiroNome.compareTo(c.primeiroNome);
 	}
 
 }
