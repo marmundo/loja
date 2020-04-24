@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-lang="en" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="layout">
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br"
+	xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="layout">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
@@ -10,32 +10,12 @@ lang="en" xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="layout">
 	</h1>
 	<div layout:fragment="content" class="container">
 		<div class="jumbotron">
-			<a th:href="@{/ambiente/}" class="btn btn-lg btn-info">Ambiente</a> <a
-				th:href="@{/h2-console}" class="btn btn-lg btn-info">H2 Console</a> <a
-				th:href="@{/clientes/}" class="btn btn-lg btn-primary">Cadastro
-				de clientes</a> <a th:href="@{/itens/}" class="btn btn-lg btn-primary">Cadastro
-				de itens</a> <a th:href="@{/pedidos/}" class="btn btn-lg btn-primary">Cadastro
-				de pedidos</a> <a th:href="@{/delivery/}" class="btn btn-lg btn-info">Delivery</a>
+			<a th:href="@{/h2-console}" class="btn btn-lg btn-info">H2 Console</a> 
+			<a th:href="@{/clientes/}" class="btn btn-lg btn-primary">Cadastro de clientes</a> 
+			<a th:href="@{/itens/}" class="btn btn-lg btn-primary">Cadastro de itens</a>
+			<a th:href="@{/pedidos/}" class="btn btn-lg btn-primary">Cadastro de pedidos</a>
+			<a th:href="@{/delivery/}" class="btn btn-lg btn-info">Delivery</a>
 		</div>
 	</div>
 </body>
 </html>
-<!-- <!DOCTYPE HTML>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
-<head>
-    <title>Spring Boot Thymeleaf + Spring Security</title>
-</head>
-<body>
-<div layout:fragment="content" class="container">
-
-    <div class="jumbotron">
-        <h1>Navbar example</h1>
-        <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work.
-            It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-        <p>
-            <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-        </p>
-    </div>
-</div>
-</body>
-</html> -->
