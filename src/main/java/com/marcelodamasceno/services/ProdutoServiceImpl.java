@@ -32,6 +32,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 
 	@Override
 	public void deleteProduto(String id) {
+		System.out.println("ID--"+id);
 		produtoRepo.remove(id);
 	}
 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout">
+<head>
+<title>Produtos</title>
+</head>
+<body>
+	<h1 layout:fragment="header">Lista de Produtos</h1>
+	<div layout:fragment="content" class="container">
+			<a href="form.html" th:href="@{/produtos/novo}">Novo Produto</a>
+		<div class="alert alert-success" th:if="${globalMessage}"
+			th:text="${globalMessage}">mensagem</div>			
+		<table class="table table-bordered table-striped">
+			<thead> 
+				<tr>
+					<td>ID</td>
+					<td>Nome</td>
+					<td>Valor</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${produtos.empty}">
+					<td colspan="3">Sem Produtos</td>
+				</tr>
+				<tr th:each="produto : ${produtos}">
+					<td th:text="${produto.id}">1</td>
+					<td><a href="view.html" th:href="@{'/produtos/' + ${produto.id}}" th:text="${produto.nome}"> nome </a></td>
+					<td th:text="${produto.valor}"> Valor</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

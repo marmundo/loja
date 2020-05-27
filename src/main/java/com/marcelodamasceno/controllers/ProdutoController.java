@@ -41,7 +41,7 @@ public class ProdutoController implements CrudController {
 		servico.atualizarProduto((Produto) object);
 	}
 	
-	@GetMapping("/")
+	@GetMapping(value = {"/",""})
 	public String lista(Model model) {
 		List<Produto> lista=new ArrayList<>(servico.getProdutos());
 		model.addAttribute("produtos", lista);
@@ -51,7 +51,7 @@ public class ProdutoController implements CrudController {
 	@GetMapping("/remover/{id}")
 	public String remover(@PathVariable Long id) {
 		remove(id);
-		return "produtos/view";
+		return "redirect:/produtos/";
 	}
 
 	@GetMapping("{id}")
@@ -64,7 +64,7 @@ public class ProdutoController implements CrudController {
 	@GetMapping("/alterar/{id}")
 	public String alterar(@PathVariable("id") Long id, Model model) {
 		Produto produto = servico.getProduto(id);
-		model.addAttribute("cliente", produto);
+		model.addAttribute("produto", produto);
 		return "produtos/form";
 	}
 
