@@ -43,7 +43,6 @@ public class ClienteController implements CrudController {
 		servico.atualizarCliente((Cliente) object);
 	}
 
-	@SuppressWarnings("unchecked")
 	@GetMapping("/")
 	public String lista(Model model) {
 		
