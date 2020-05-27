@@ -40,4 +40,9 @@ public class ProdutoServiceImpl implements ProdutoService {
 		return produtoRepo.values();
 	}
 
+	@Override
+	public Produto getProduto(Long id) {
+		return produtoRepo.get(id.toString());
+	}
+
 }
