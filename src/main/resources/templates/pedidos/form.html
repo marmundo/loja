@@ -19,7 +19,7 @@
 	<div layout:fragment="content" class="input-form">
 		
 		<div class="well">
-		 <form id="pedidoForm" th:action="@{/pedidos/(form)}" th:object="${pedido}" action="#" method="post"  class="form-horizontal">
+		 <form id="pedidoForm" th:action="@{/pedidos/}" th:object="${pedido}" action="#" method="post"  class="form-horizontal">
 			<div th:if="${#fields.hasErrors('*')}" class="alert alert-error">
 				<p th:each="error : ${#fields.errors('*')}" th:text="${error}">Erro de validação</p>
 			</div>
@@ -45,7 +45,7 @@
 			  
 			<select id="itemList" multiple="multiple" th:field="*{produtos}"  name="itemListId">
                    <option th:each="produto :${produtos}" 
-                           th:value="${produto.nome}" 
+                           th:value="${{produto}}" 
                            th:text="${produto.nome}"
                            />
              </select>

@@ -1,5 +1,6 @@
 package com.marcelodamasceno.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -20,20 +21,19 @@ public class Cliente implements Comparable<Object> {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@NotNull
 	@Length(min = 2, max = 30, message = "O tamanho do nome deve ser entre {min} e {max} caracteres")
 	private String primeiroNome;
-	
+
 	@NotNull
-    @Length(min=2, max=30,message="O tamanho do sobrenome deve ser entre {min} e {max} caracteres")
+	@Length(min = 2, max = 30, message = "O tamanho do sobrenome deve ser entre {min} e {max} caracteres")
 	private String sobrenome;
 
-	@OneToMany(mappedBy = "cliente",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
 	@Cascade(CascadeType.ALL)
 	private List<Pedido> pedidos;
 
-	
 	public Cliente(Long id, String primeiroNome, String sobrenome) {
 		super();
 		this.id = id;
@@ -118,6 +118,12 @@ public class Cliente implements Comparable<Object> {
 	public int compareTo(Object o) {
 		Cliente c = (Cliente) o;
 		return this.primeiroNome.compareTo(c.primeiroNome);
+	}
+
+	public void novoPedido(Pedido pedido) {
+		if (this.pedidos == null)
+			pedidos = new ArrayList<Pedido>();
+		pedidos.add(pedido);
 	}
 
 }
