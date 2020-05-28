@@ -4,15 +4,6 @@
 	layout:decorate="layout">
 <head>
 <title>Pedido</title>
-  <script>
-  $( function() {
-    $( "#data" ).datepicker({
-        changeMonth: true,
-        changeYear: true,
-        dateFormat: 'dd-mm-yy' 
-    });
-  } );
-  </script>
 </head>
 <body>
 	<h1 layout:fragment="header">Cadastro de Pedido</h1>
@@ -20,18 +11,18 @@
 		
 		<div class="well">
 		 <form id="pedidoForm" th:action="@{/pedidos/}" th:object="${pedido}" action="#" method="post"  class="form-horizontal">
-			 <div th:if="${#fields.hasErrors('*')}" class="alert alert-error">
+			<div th:if="${#fields.hasErrors('*')}" class="alert alert-error">
 				<p th:each="error : ${#fields.errors('*')}" th:text="${error}">Erro de validação</p>
 			</div>
 			
-			<input  type="hidden" th:field="*{id}" th:class="${#fields.hasErrors('id')} ? 'field-error'" />
+			<input type="hidden" th:field="*{id}" th:class="${#fields.hasErrors('id')} ? 'field-error'" />
 			 
 			 <div class="form-group">
 			 <label class="control-label col-sm-2" for="nome">Nome</label> 
 			 <select class="col-sm-10"  th:field="*{cliente}" >
                    <option th:each="cliente :${clientes}" 
                            th:value="${cliente.id}" 
-                           th:text="${cliente.primeiroNome}"
+                           th:text="${cliente.nome}"
                            />
              </select>
 			</div>
@@ -45,7 +36,7 @@
 			  
 			<select id="itemList" multiple="multiple" th:field="*{produtos}"  name="produtoListId">
                    <option th:each="produto :${produtos}" 
-                           th:value="${produto}" 
+                           th:value="${{produto}}" 
                            th:text="${produto.nome}"
                            />
              </select>

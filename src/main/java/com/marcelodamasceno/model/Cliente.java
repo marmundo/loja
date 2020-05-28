@@ -15,20 +15,12 @@ public class Cliente implements Comparable<Object> {
 	private String sobrenome;
 
 	private List<Pedido> pedidos;
-	
+
 	public Cliente(Long id, String primeiroNome, String sobrenome) {
 		super();
 		this.id = id;
 		this.primeiroNome = primeiroNome;
 		this.sobrenome = sobrenome;
-	}
-
-	public Cliente(Long id, String primeiroNome, String sobrenome,List<Pedido> pedidos) {
-		super();
-		this.id = id;
-		this.primeiroNome = primeiroNome;
-		this.sobrenome = sobrenome;
-		this.pedidos=pedidos;
 	}
 
 	public Cliente(String primeiroNome, String sobrenome) {

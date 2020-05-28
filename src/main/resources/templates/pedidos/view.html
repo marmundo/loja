@@ -16,17 +16,17 @@
 					<th>Nome</th>
 					<th>Data</th>
 					<th>Valor total</th>
-					<th>Produtos</th>
+					<th>Itens</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<td id="id" th:text="${pedido.id}">123</td>
-					<td id="nome" th:text="${pedido.cliente.primeiroNome}">Nome...</td>
+					<td id="nome" th:text="${pedido.cliente.nome}">Nome...</td>
 					<td id="data" th:text="${pedido.data}">Preco...</td>
 					<td id="valorTotal" th:text="${pedido.valorTotal}">Valor total...</td>
-					<td id="itens" th:each="produto : ${pedido.produtos}">
-					  <div th:text="${produto.nome}"> nome </div>
+					<td id="itens" th:each="item : ${pedido.itens}">
+					  <div th:text="${item.nome}"> nome </div>
 					</td>
 				</tr>
 			</tbody>
