@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Pedido {
 
 	@Id
@@ -16,6 +18,7 @@ public class Pedido {
 
 	private Cliente cliente;
 
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private Date data;
 
 	private double valorTotal;
