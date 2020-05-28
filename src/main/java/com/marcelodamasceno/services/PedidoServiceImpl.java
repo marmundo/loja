@@ -17,11 +17,12 @@ import com.marcelodamasceno.model.Produto;
 public class PedidoServiceImpl implements PedidoService {
 
 	private static Map<String, Pedido> pedidoRepo = new HashMap<>();
+	private static Map<String, Cliente> clienteRepo = new HashMap<>();
 	static {
 		Produto produto = new Produto((long) 1, "acucar", 1);
 		List<Produto> produtos = new ArrayList<Produto>();
 		produtos.add(produto);
-		Cliente marceloDamasceno = new Cliente((long) 1, "Marcelo", "Damasceno");
+		
 
 		Date data = new Date();
 		double valorTotal = 0;
@@ -29,8 +30,16 @@ public class PedidoServiceImpl implements PedidoService {
 			valorTotal += produto2.getValor();
 		}
 
+		ClienteServiceImpl clienteServico=new ClienteServiceImpl();
+		Cliente marceloDamasceno = clienteServico.getCliente((long) 1);
+		
 		Pedido pedido = new Pedido((long) 1, produtos, marceloDamasceno, data, valorTotal);
+		List<Pedido> pedidos=new ArrayList<Pedido>();
+		pedidos.add(pedido);
+//		marceloDamasceno.setPedidos(pedidos);
+		
 		pedidoRepo.put(pedido.getId().toString(), pedido);
+//		clienteRepo.put(marceloDamasceno.getId().toString(), marceloDamasceno);
 	}
 
 	@Override
@@ -52,6 +61,11 @@ public class PedidoServiceImpl implements PedidoService {
 	@Override
 	public Collection<Pedido> getPedidos() {
 		return pedidoRepo.values();
+	}
+
+	@Override
+	public Pedido getPedido(Long id) {
+		return pedidoRepo.get(id.toString());
 	}
 
 }

@@ -13,4 +13,6 @@ public interface PedidoService {
 	public abstract void deletePedido(String id);
 
 	public abstract Collection<Pedido> getPedidos();
+
+	public abstract Pedido getPedido(Long id);
 }
