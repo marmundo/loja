@@ -1,17 +1,27 @@
 package com.marcelodamasceno.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Length;
+
+@Entity
 public class Produto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
+	@NotNull
+	@Length(min = 2, max = 30, message = "O tamanho do nome deve ser entre {min} e {max} caracteres")
 	private String nome;
 
+	@NotNull
+	@Min(value=(long) 0.10, message = "O valor deve ser acima de R$0,10")
 	private double valor;
 
 	public Produto(Long id, String nome, double valor) {

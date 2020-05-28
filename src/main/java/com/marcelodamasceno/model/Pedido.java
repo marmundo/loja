@@ -3,24 +3,36 @@ package com.marcelodamasceno.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.Min;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.springframework.format.annotation.DateTimeFormat;
 
+@Entity
 public class Pedido {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	@ManyToMany
+	@Cascade(CascadeType.MERGE)
 	private List<Produto> produtos;
 
+	@ManyToOne
 	private Cliente cliente;
 
 	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private Date data;
 
+	@Min(1)
 	private double valorTotal;
 
 	public Pedido(Long id, List<Produto> produtos, Cliente cliente, Date data, double valorTotal) {
