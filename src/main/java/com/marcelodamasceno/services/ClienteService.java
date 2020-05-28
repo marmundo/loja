@@ -10,9 +10,10 @@ public interface ClienteService {
 
 	public abstract void atualizarCliente(Cliente cliente);
 
-	public abstract void deleteCliente(String id);
+	public abstract void deleteCliente(Long id);
 
 	public abstract Collection<Cliente> getClientes();
 
 	public abstract Cliente getCliente(Long id);
+
 }

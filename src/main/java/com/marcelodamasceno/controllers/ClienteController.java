@@ -35,7 +35,7 @@ public class ClienteController implements CrudController {
 
 	@Override
 	public void remove(Long id) {
-		servico.deleteCliente(id.toString());
+		servico.deleteCliente(id);
 	}
 
 	@Override
@@ -45,8 +45,8 @@ public class ClienteController implements CrudController {
 
 	@GetMapping("/")
 	public String lista(Model model) {
-		
-		List<Cliente> lista=new ArrayList<>(servico.getClientes());
+
+		List<Cliente> lista = new ArrayList<>(servico.getClientes());
 		Collections.sort(lista);
 //		System.out.println("Arrumada: "+lista);
 		model.addAttribute("clientes", lista);

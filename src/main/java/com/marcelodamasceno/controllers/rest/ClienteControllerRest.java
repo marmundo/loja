@@ -28,7 +28,7 @@ public class ClienteControllerRest implements CrudController {
 
 	@Override
 	public void remove(Long id) {
-		servico.deleteCliente(id.toString());
+		servico.deleteCliente(id);
 
 	}
 
