@@ -29,7 +29,7 @@ public class Pedido {
 	@ManyToOne
 	private Cliente cliente;
 
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date data;
 
 	@Min(1)
@@ -46,6 +46,15 @@ public class Pedido {
 
 	public Pedido() {
 		super();
+	}
+
+
+	public Pedido(Long id, Cliente cliente, List<Produto> produtos, double valorTotal) {
+		super();
+		this.id = id;
+		this.produtos = produtos;
+		this.cliente = cliente;
+		this.valorTotal = valorTotal;
 	}
 
 	public Long getId() {
@@ -115,8 +124,9 @@ public class Pedido {
 
 	@Override
 	public String toString() {
-		return "Pedido [id=" + id + ", produtos=" + produtos + ", cliente=" + cliente + ", data=" + data
-				+ ", valorTotal=" + valorTotal + "]";
+		return "Pedido [id=" + id + "]";
 	}
+
+
 
 }

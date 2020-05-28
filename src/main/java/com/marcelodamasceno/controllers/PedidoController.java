@@ -3,8 +3,6 @@ package com.marcelodamasceno.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,7 +45,7 @@ public class PedidoController implements CrudController {
 
 	@Override
 	public void remove(Long id) {
-		pedidoServico.deletePedido(id.toString());
+		pedidoServico.deletePedido(id);
 	}
 
 	@Override
@@ -72,7 +70,6 @@ public class PedidoController implements CrudController {
 	@GetMapping("{id}")
 	public String view(@PathVariable("id") Long id, Model model) {
 		Pedido pedido = pedidoServico.getPedido(id);
-		System.out.println(pedido);
 		model.addAttribute("pedido", pedido);
 		return "pedidos/view";
 	}
@@ -87,8 +84,7 @@ public class PedidoController implements CrudController {
 	}
 
 	@PostMapping("")
-	public String create(@Valid Pedido pedido, BindingResult result, Model model) {
-
+	public String create(Pedido pedido, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			model.addAttribute("formErrors", result.getAllErrors());
 			return "redirect:/pedidos/form";
@@ -104,8 +100,7 @@ public class PedidoController implements CrudController {
 			}
 			pedidoParaAlterar.setData(pedido.getData());
 			pedidoParaAlterar.setValorTotal(valorTotal);
-
-			c.getPedidos().remove(pedidoParaAlterar.getId().intValue());
+			c.getPedidos().remove(pedido);
 			c.getPedidos().add(pedidoParaAlterar);
 			clienteServico.atualizarCliente(c);
 		} else {
@@ -119,7 +114,7 @@ public class PedidoController implements CrudController {
 			c.getPedidos().add(pedido);
 			clienteServico.atualizarCliente(c);
 		}
-		model.addAttribute("globalMessage", "Pedido gravado com sucesso");
+//		model.addAttribute("globalMessage", "Pedido gravado com sucesso");
 		return "redirect:/pedidos/" + pedido.getId();
 	}
 
