@@ -54,4 +54,9 @@ public class PedidoServiceImpl implements PedidoService {
 		return pedidoRepo.values();
 	}
 
+	@Override
+	public Pedido getPedido(Long id) {
+		return pedidoRepo.get(id.toString());
+	}
+
 }
