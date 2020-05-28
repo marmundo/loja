@@ -124,8 +124,10 @@ public class PedidoController implements CrudController {
 	}
 
 	@GetMapping("/novo")
-	public String createForm(Cliente cliente) {
-		return "clientes/form";
+	public String createForm(Pedido pedido, Model model) {
+		model.addAttribute("clientes", clienteServico.getClientes());
+		model.addAttribute("produtos", produtoServico.getProdutos());
+		return "pedidos/form";
 	}
 
 }

@@ -33,7 +33,7 @@ public class ProdutoController implements CrudController {
 
 	@Override
 	public void remove(Long id) {
-		servico.deleteProduto(id.toString());
+		servico.deleteProduto(id);
 	}
 
 	@Override

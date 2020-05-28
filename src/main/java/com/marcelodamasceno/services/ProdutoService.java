@@ -10,9 +10,10 @@ public interface ProdutoService {
 
 	public abstract void atualizarProduto(Produto produto);
 
-	public abstract void deleteProduto(String id);
+	public abstract void deleteProduto(Long id);
 
 	public abstract Collection<Produto> getProdutos();
-	
+
 	public abstract Produto getProduto(Long id);
+
 }

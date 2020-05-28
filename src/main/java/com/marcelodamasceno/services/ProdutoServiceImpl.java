@@ -7,43 +7,41 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import com.marcelodamasceno.model.Produto;
+import com.marcelodamasceno.repository.ProdutoRepository;
 
 @Service
 public class ProdutoServiceImpl implements ProdutoService {
 
-	private static Map<String, Produto> produtoRepo = new HashMap<>();
-	static {
-		Produto acucar = new Produto((long) 1, "acucar", 2.50);
-		produtoRepo.put(acucar.getId().toString(), acucar);
+	ProdutoRepository produtoRepo;
 
+	public ProdutoServiceImpl(ProdutoRepository produtoRepo) {
+		super();
+		this.produtoRepo = produtoRepo;
 	}
 
 	@Override
 	public void criarProduto(Produto produto) {
-		produtoRepo.put(produto.getId().toString(), produto);
+		produtoRepo.save(produto);
 	}
 
 	@Override
 	public void atualizarProduto(Produto produto) {
-		produtoRepo.remove(produto.getId().toString());
-		produtoRepo.put(produto.getId().toString(), produto);
-
+		produtoRepo.save(produto);
 	}
 
 	@Override
-	public void deleteProduto(String id) {
-		System.out.println("ID--"+id);
-		produtoRepo.remove(id);
+	public void deleteProduto(Long id) {
+		produtoRepo.deleteById(id);
 	}
 
 	@Override
 	public Collection<Produto> getProdutos() {
-		return produtoRepo.values();
+		return produtoRepo.findAll();
 	}
 
 	@Override
 	public Produto getProduto(Long id) {
-		return produtoRepo.get(id.toString());
+		return produtoRepo.findById(id).orElse(new Produto());
 	}
 
 }
